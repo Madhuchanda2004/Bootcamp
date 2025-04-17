@@ -20,6 +20,21 @@ body #main{
     position:relative;
 }
 
+#main #node{
+    width:100%;
+    height:6vw;
+}
+
+.light{
+    background-color: white;
+    color:black;
+}
+
+.dark{
+    background-color: black;
+    color: white;
+}
+
 #main #nav{
     width: 98%;
     height: 100%;
@@ -30,8 +45,6 @@ body #main{
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     margin-bottom: 4vw;
-    /*padding-left: 1vw;
-    padding-right: 3vw;*/
 }
 
 #nav h1{
@@ -159,33 +172,47 @@ body #main{
 #main #picture{
     height: 200px;
     width:100%;
-    position:relative;
     padding-top:2vw;
-    overflow-x: hidden;
-    display:flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-#picture img{
-    width:6vw;
-    height:6vw;
+#image #pic_set{
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    padding: 1vw;
+    animation-name: marqueeAnimation;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+#picture #pic_set img{
+    width:10vw;
+    height:10vw;
     border-radius:50%;
     object-fit: cover;
     margin-right: 2vw;
+    object-position: center;
 }
 
 @keyframes marqueeAnimation {
-    0% {
-        transform: translateX(100%); /* Start from the right */
+    from{
+        transform: translate(0);
     }
-    100% {
-        transform: translateX(-100%); /* Move to the left */
+    to{
+        transform: translate(-100%);
     }
+
 }
 
-/* Apply the animation to the images */
-#picture {
-    /*animation: marqueeAnimation 10s linear infinite; /* 20s can be adjusted for speed */
+#picture::-webkit-scrollbar{
+    display: none;
 }
+
 
 #main #alpa {
     display: flex;
@@ -225,23 +252,33 @@ h4:hover{
     cursor: pointer;
 } 
 
-#main #pi_txt{
+#main #pic_txt{
     height: 100%;
     width:100%;
-    position:relative;
     padding-top:4vw;
-    overflow-x: hidden;
     display:flex;
     margin-bottom: 4vw;
+    position:relative;
+}
+
+#pic_txt #pic1{
+    position:absolute;
+    width:65%;
+    height:45vw;
 }
 
 #pic_txt #pic1 img{
-    width:45%;
-    height:42vw;
-    position:absolute;
+    width:65%;
+    height:45vw;
     object-fit: cover;
     margin-right: 2vw;
     margin-left: 6vw;
+}
+
+#pic_txt #pic2{
+    position:absolute;
+    width:40vw;
+    height:30vw;
 }
 
 #pic_txt #pic2 img{
@@ -254,20 +291,24 @@ h4:hover{
     object-position: top;
 }
 
-#pic_txt #pic2 p{
-    left:62vw;
-    top: 124vw;
-    transform: translate(-50%, -50%); 
+#pic_txt #p1{
     position:absolute;
+}
+
+#p1 p{
+    margin-left: 53vw;
+    margin-top: 35vw;
     font-size: 25px;
 }
 
-#p2 p{
-    left:81vw;
-    top: 122vw;
-    transform: translate(-50%, -50%); 
-    position:absolute;
+#pic_txt #p2{
+    position: absolute;
+}
+
+#p2 p{ 
     font-size: 13px;
+    margin-left: 78vw;
+    margin-top: 38vw;
 }
 
 #main #bet_txt {
@@ -299,13 +340,13 @@ h4:hover{
 
 #pic_txt1 #pic2 img{
     width:120%;
-    margin-left:10vw;
+    margin-left:10.5vw;
 }
 
 #main #picture_page img{
     position:absolute;
     width: 88%;
-    height: 23%;
+    height: 50vw;
     object-fit:cover;
     margin-left:6vw;
 }
@@ -331,7 +372,7 @@ h4:hover{
     font-size: 30px;
     font-weight: 60px;
     position:relative;
-    padding-top: 75vw;
+    padding-top: 60vw;
     padding-left: 42vw;
     padding-bottom: 6vw;
 }
@@ -347,7 +388,7 @@ h4:hover{
 }
 
 #men p:nth-last-child(1){
-    padding-left:75vw;
+    padding-left:70vw;
     position:absolute;
     bottom: 2vw;
     font-size:12px;
@@ -366,6 +407,26 @@ h4:hover{
     font-size:20px;
 }
 
+#men #hover-image {
+    width: 2vw; /* Set your image size */
+    height: 2vw;
+    left:20vw;
+    bottom: 4.5vw;
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 2s ease; /* The transition effect */
+}
+
+#hover-image img{
+    width: 6vw; /* Set your image size */
+    height: 6vw;
+    border-radius: 50%;
+}
+  
+#hover-image:hover {
+    transform: translateX(450px); /* Moves the image 200px to the right */
+}
+
 #main #women{
     position: relative;
     margin-left: 6vw;
@@ -376,7 +437,7 @@ h4:hover{
 }
 
 #women p:nth-last-child(1){
-    padding-left:75vw;
+    margin-left:70vw;
     position:absolute;
     bottom: 2vw;
     font-size:12px;
@@ -395,6 +456,26 @@ h4:hover{
     font-size:20px;
 }
 
+#women #hover-image {
+    width: 2vw; /* Set your image size */
+    height: 2vw;
+    left:20vw;
+    bottom: 5vw;
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 2s ease; /* The transition effect */
+}
+
+#hover-image img{
+    width: 6vw; /* Set your image size */
+    height: 6vw;
+    border-radius: 50%;
+}
+  
+#hover-image:hover {
+    transform: translateX(450px); /* Moves the image 200px to the right */
+}
+
 #main #special{
     position: relative;
     margin-left: 6vw;
@@ -405,7 +486,7 @@ h4:hover{
 }
 
 #special p:nth-last-child(1){
-    padding-left:75vw;
+    padding-left:70vw;
     position:absolute;
     bottom: 2vw;
     font-size:12px;
@@ -434,7 +515,7 @@ h4:hover{
 }
 
 #model p:nth-last-child(1){
-    padding-left:75vw;
+    padding-left:70vw;
     position:absolute;
     bottom: 2vw;
     font-size:12px;
@@ -453,3 +534,79 @@ h4:hover{
     font-size:20px;
 }
 
+#main #pic_txt2{
+    height: 100%;
+    width:100%;
+    position:relative;
+    padding-top:4vw;
+    display:flex;
+    margin-bottom: 4vw;
+}
+
+#pic_txt2 #pic1 img{
+    width:40%;
+    height:50vw;
+    position:absolute;
+    object-fit: cover;
+    margin-right: 2vw;
+    margin-left: 6vw;
+}
+
+#pic_txt2 #pic2 img{
+    width:25vw;
+    height:30vw;
+    top: 24vw;
+    margin-left:50vw;
+    object-fit: cover;
+    object-position: top;
+    margin-right: 2vw;
+    position: absolute;
+}
+
+#pic_txt2 #pic3 img{
+    width:16vw;
+    height:30vw;
+    left:75vw;
+    top:24vw;
+    object-fit: cover;
+    margin-left:2vw;
+    position: absolute;
+}
+
+#pic_txt2 #head{
+    position:absolute;
+    left:50vw;
+    font-size: 35px;
+}
+
+#pic_txt2 #para{
+    position:absolute;
+    top:10vw;
+    left:50vw;
+    font-weight: bold;
+    font-size:larger;
+}
+
+#pic_txt2 #para_nxt{
+    position:absolute;
+    left:50vw;
+    top:18vw;
+    font-size:medium;
+}
+
+#main #picture_page2{
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+#picture_page2 #pic{
+    position: absolute;
+    top:52vw;
+}
+
+#picture_page2 #pic img{
+    width: 132%;
+    margin-left: 6vw;
+    height: 40vw; 
+}
